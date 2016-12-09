@@ -48,7 +48,7 @@ for (subj in subjects) {
     m_subject_activity$activity <- act
     m_subject_activity$activity_label <- activity_lbl[act,2]
     # complete tidying data frame
-    tidy_data.frame <- rbind(tidy.frame, m_subject_activity)
+    tidy_data.frame <- rbind(tidy_data.frame, m_subject_activity)
   }
 }
 write.table(tidy_data.frame, file="tidy-data.csv")
