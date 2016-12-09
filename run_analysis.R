@@ -28,8 +28,8 @@ test_x$subject <- test_subjects
 data_set <- rbind(train_x, test_x)
 
 mean_std_col <- grepl('(-std\\(\\)|-mean\\(\\))', feature_names$V2)
-mean_std_col <- append(mean_std_col, TRUE)
-mean_std_col <- append(mean_std_col, TRUE)
+mean_std_col <- append(mean_std_col,TRUE)
+mean_std_col <- append(mean_std_col,TRUE)
 mean_stddev <- data_set[, mean_std_col]
 
 # refactor act names into factors
@@ -51,4 +51,9 @@ for (subj in subjects) {
     tidy_data.frame <- rbind(tidy_data.frame, m_subject_activity)
   }
 }
-write.table(tidy_data.frame, file="tidy-data.csv")
+
+names(tidy_data.frame) <- sub("^t", "", names(tidy_data.frame))
+names(tidy_data.frame) <- sub("^f", "", names(tidy_data.frame))
+names(tidy_data.frame) <- gsub("^(\\w)(\\w+)", "\\U\\1\\L\\2", names(tidy_data.frame), perl = TRUE)
+
+write.table(tidy_data.frame, file="tidy-data.csv", row.name=FALSE)
