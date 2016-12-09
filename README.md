@@ -13,5 +13,5 @@ Download the zip file from
 Unzip the file. In the same unziped directory copy the run_analysis.R file
 run the script with
 
- * setwd("~/R/tidy/UCI HAR Dataset")
+ * setwd("~/R/tidy/UCI HAR Dataset") //change this path to yours
  * source('run_analysis.R')
